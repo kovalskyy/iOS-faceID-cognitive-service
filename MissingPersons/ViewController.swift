@@ -8,7 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,
+                        UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    let imagePicker = UIImagePickerController()
 
     
     @IBOutlet weak var selectedImage: UIImageView!
@@ -31,7 +34,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        imagePicker.delegate = self
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(loadPicker(gesture:)))
+        tap.numberOfTapsRequired = 1
+        selectedImage.addGestureRecognizer(tap)
         
     }
 
@@ -56,6 +63,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            selectedImage.image = pickedImage
+        }
+        dismiss(animated: true, completion: nil)
+        
+    }
 
+    func loadPicker(gesture: UITapGestureRecognizer) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)  // present view controller
+    }
+    
+    
 }
 
