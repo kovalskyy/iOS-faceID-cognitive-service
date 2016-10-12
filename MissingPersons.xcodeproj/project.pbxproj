@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		191E85D8442F4715CFC4DD3F /* Pods_MissingPersons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B825F90CBC330AC8146FBEC /* Pods_MissingPersons.framework */; };
+		236A88931DACE4E8006A1A1D /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A88921DACE4E8006A1A1D /* PersonCell.swift */; };
+		236A88981DAD4685006A1A1D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A88971DAD4685006A1A1D /* Person.swift */; };
+		236A889A1DAD4903006A1A1D /* FaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A88991DAD4903006A1A1D /* FaceService.swift */; };
 		23E63FC01DAC2EB10045535D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E63FBF1DAC2EB10045535D /* AppDelegate.swift */; };
 		23E63FC21DAC2EB10045535D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E63FC11DAC2EB10045535D /* ViewController.swift */; };
 		23E63FC51DAC2EB10045535D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23E63FC31DAC2EB10045535D /* Main.storyboard */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		236A88921DACE4E8006A1A1D /* PersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		236A88941DAD325E006A1A1D /* MissingPersons-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MissingPersons-Bridging-Header.h"; sourceTree = "<group>"; };
+		236A88971DAD4685006A1A1D /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		236A88991DAD4903006A1A1D /* FaceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceService.swift; sourceTree = "<group>"; };
 		23E63FBC1DAC2EB10045535D /* MissingPersons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MissingPersons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23E63FBF1DAC2EB10045535D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23E63FC11DAC2EB10045535D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +30,9 @@
 		23E63FC61DAC2EB10045535D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23E63FC91DAC2EB10045535D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23E63FCB1DAC2EB10045535D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B825F90CBC330AC8146FBEC /* Pods_MissingPersons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MissingPersons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4207D3A94C5027E718746A91 /* Pods-MissingPersons.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MissingPersons.release.xcconfig"; path = "Pods/Target Support Files/Pods-MissingPersons/Pods-MissingPersons.release.xcconfig"; sourceTree = "<group>"; };
+		5CBA2BFB5BBEC51B3013DBE8 /* Pods-MissingPersons.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MissingPersons.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MissingPersons/Pods-MissingPersons.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				191E85D8442F4715CFC4DD3F /* Pods_MissingPersons.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +52,8 @@
 			children = (
 				23E63FBE1DAC2EB10045535D /* MissingPersons */,
 				23E63FBD1DAC2EB10045535D /* Products */,
+				78176714BD872637E0C2DD25 /* Pods */,
+				DA42BB898E18C87A7A5516FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +70,33 @@
 			children = (
 				23E63FBF1DAC2EB10045535D /* AppDelegate.swift */,
 				23E63FC11DAC2EB10045535D /* ViewController.swift */,
+				236A88921DACE4E8006A1A1D /* PersonCell.swift */,
+				236A88971DAD4685006A1A1D /* Person.swift */,
+				236A88991DAD4903006A1A1D /* FaceService.swift */,
 				23E63FC31DAC2EB10045535D /* Main.storyboard */,
 				23E63FC61DAC2EB10045535D /* Assets.xcassets */,
 				23E63FC81DAC2EB10045535D /* LaunchScreen.storyboard */,
 				23E63FCB1DAC2EB10045535D /* Info.plist */,
+				236A88941DAD325E006A1A1D /* MissingPersons-Bridging-Header.h */,
 			);
 			path = MissingPersons;
+			sourceTree = "<group>";
+		};
+		78176714BD872637E0C2DD25 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CBA2BFB5BBEC51B3013DBE8 /* Pods-MissingPersons.debug.xcconfig */,
+				4207D3A94C5027E718746A91 /* Pods-MissingPersons.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DA42BB898E18C87A7A5516FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B825F90CBC330AC8146FBEC /* Pods_MissingPersons.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23E63FCE1DAC2EB10045535D /* Build configuration list for PBXNativeTarget "MissingPersons" */;
 			buildPhases = (
+				90D163020375FEA999AF984D /* [CP] Check Pods Manifest.lock */,
 				23E63FB81DAC2EB10045535D /* Sources */,
 				23E63FB91DAC2EB10045535D /* Frameworks */,
 				23E63FBA1DAC2EB10045535D /* Resources */,
+				E79FF9B30849CC47405ABB11 /* [CP] Embed Pods Frameworks */,
+				E0CD62CFF2543A9CE23C4BF3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +134,7 @@
 				TargetAttributes = {
 					23E63FBB1DAC2EB10045535D = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,12 +170,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		90D163020375FEA999AF984D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E0CD62CFF2543A9CE23C4BF3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MissingPersons/Pods-MissingPersons-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E79FF9B30849CC47405ABB11 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MissingPersons/Pods-MissingPersons-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		23E63FB81DAC2EB10045535D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				236A889A1DAD4903006A1A1D /* FaceService.swift in Sources */,
+				236A88931DACE4E8006A1A1D /* PersonCell.swift in Sources */,
 				23E63FC21DAC2EB10045535D /* ViewController.swift in Sources */,
+				236A88981DAD4685006A1A1D /* Person.swift in Sources */,
 				23E63FC01DAC2EB10045535D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,24 +348,31 @@
 		};
 		23E63FCF1DAC2EB10045535D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CBA2BFB5BBEC51B3013DBE8 /* Pods-MissingPersons.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MissingPersons/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kkovalsky.MissingPersons;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MissingPersons/MissingPersons-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		23E63FD01DAC2EB10045535D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4207D3A94C5027E718746A91 /* Pods-MissingPersons.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MissingPersons/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kkovalsky.MissingPersons;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MissingPersons/MissingPersons-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -299,6 +396,7 @@
 				23E63FD01DAC2EB10045535D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

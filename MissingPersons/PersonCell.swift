@@ -11,10 +11,12 @@ import UIKit
 class PersonCell: UICollectionViewCell {
     
     @IBOutlet weak var personImage:UIImageView!
+    var person: Person!
     
-    func configureCell(imgUrl: String) {
+    func configureCell(person: Person) {
+        self.person = person
         
-        if let url = URL(string: imgUrl) {
+        if let url = URL(string: "\(baseURL)\(person.personImageUrl!)") {
             downloadImage(url: url)
         }
 }
@@ -29,6 +31,8 @@ class PersonCell: UICollectionViewCell {
                 // if theres and error, or nil -> we will return -> safe guard nothing happens
                 
                 self.personImage.image = UIImage(data: data)
+                self.person.personImage = self.personImage.image // set the image to API
+                
             }
             
             
@@ -52,5 +56,12 @@ class PersonCell: UICollectionViewCell {
     
     
 }
+    func setSelected() {
+        personImage.layer.borderWidth = 2.0
+        personImage.layer.borderColor = UIColor.blue.cgColor
+        
+        self.person.downloadFaceId()
+    }
+    
     
 }
