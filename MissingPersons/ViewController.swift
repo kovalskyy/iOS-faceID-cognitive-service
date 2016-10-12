@@ -7,25 +7,40 @@
 //
 
 import UIKit
+import ProjectOxfordFace
+
+let baseURL = "http://localHost:6069/img/"
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,
                         UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let imagePicker = UIImagePickerController()
+    
+    var selectedPerson: Person?
 
     
     @IBOutlet weak var selectedImage: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     
-    let baseURL = "http://localHost:6069/img/"
+    
+    //let missingPeople = [
+    //    "person1.jpg",
+    //    "person2.jpg",
+    //    "person3.jpg",
+    //    "person4.jpg",
+    //    "person5.jpg",
+    //    "person6.png"
+    
+    
+    
     let missingPeople = [
-        "person1.jpg",
-        "person2.jpg",
-        "person3.jpg",
-        "person4.jpg",
-        "person5.jpg",
-        "person6.png"
+        Person(personImageUrL: "person1.jpg"),
+        Person(personImageUrL: "person2.jpg"),
+        Person(personImageUrL: "person3.jpg"),
+        Person(personImageUrL: "person4.jpg"),
+        Person(personImageUrL: "person5.jpg"),
+        Person(personImageUrL: "person6.png")
     ]
     
 
@@ -55,13 +70,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PersonCell", for: indexPath) as! PersonCell
         
-        let url = "\(baseURL)\(missingPeople[indexPath.row])"
-        cell.configureCell(imgUrl: url)
+        let person = missingPeople[indexPath.row]
+        cell.configureCell(person: person)
         return cell
         
         
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.selectedPerson = missingPeople[indexPath.row]
+        let cell = collectionView.cellForItem(at: indexPath) as! PersonCell
+        
+        cell.configureCell(person: selectedPerson!)
+        cell.setSelected()
+        
+    }
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
