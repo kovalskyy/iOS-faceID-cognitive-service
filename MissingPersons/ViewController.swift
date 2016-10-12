@@ -17,6 +17,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     let imagePicker = UIImagePickerController()
     
     var selectedPerson: Person?
+    var hasSelectedImage: Bool = false
 
     
     @IBOutlet weak var selectedImage: UIImageView!
@@ -58,9 +59,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
  
-    @IBAction func checkForMatch(_ sender: AnyObject) {
+    
         
-    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return missingPeople.count
@@ -92,6 +93,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             selectedImage.image = pickedImage
+            hasSelectedImage = true
         }
         dismiss(animated: true, completion: nil)
         
@@ -105,5 +107,60 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     
-}
+    func showErrorAlert() {
+        
+            let alert = UIAlertController(title: "Selected Person & Image", message: "Please select a missing person to check and an image from library", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func checkMatch(sender: AnyObject) {
+        if selectedPerson == nil || !hasSelectedImage {
+            showErrorAlert()
+        } else {
+            if let myImg = selectedImage.image, let imgData = UIImageJPEGRepresentation(myImg, 0.8) {
+                
+                // Doing now parsing with Microsoft API
+                
+                FaceService.instance.client?.detect(with: imgData, returnFaceId: true, returnFaceLandmarks: false, returnFaceAttributes: nil, completionBlock: { (faces: [MPOFace]?, err: Error?) in
+                    
+                    if err == nil {
+                        var faceId: String?
+                        for face in faces! {
+                            faceId = face.faceId
+                            break
+                        }
+                        
+                        if faceId != nil {
+                            FaceService.instance.client?.verify(withFirstFaceId: self.selectedPerson?.faceId, faceId2: faceId, completionBlock: { (result: MPOVerifyResult?, err: Error?) in
+                                
+                                                                // Check for results!!!
+                                
+                                if err == nil {
+                                    print(result?.confidence)
+                                    print(result?.isIdentical)
+                                    print(result.debugDescription)
+                                } else {
+                                    print(err.debugDescription)
+                                }
+                                
+                                
+                                
+                            })
+                        }
+                    }
+                })
+            }
+        }
+       
+     
+                
+            
+        }
+        
+    }
+    
+
 
