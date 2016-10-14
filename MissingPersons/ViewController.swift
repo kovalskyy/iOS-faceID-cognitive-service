@@ -18,6 +18,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var selectedPerson: Person?
     var hasSelectedImage: Bool = false
+    var confidenceLevel: MPOVerifyResult?
+    
 
     
     @IBOutlet weak var selectedImage: UIImageView!
@@ -106,10 +108,30 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         present(imagePicker, animated: true, completion: nil)  // present view controller
     }
     
+    func showMatchAlert() {
+        
+        let popAlert = UIAlertController(title: "You have found a match!", message: "Congratulations, it is a perfect match. Confidence level: \(confidenceLevel?.confidence)", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let OK = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+        popAlert.addAction(OK)
+        present(popAlert, animated: true, completion: nil)
+       
+        
+        
+    }
+    
+    func showNotAMatchAlert() {
+        
+        let popalert = UIAlertController(title: "Unfortunately, it's not a match!", message: "The current missing person is not who we are looking for. Confidence level: \(confidenceLevel?.confidence)", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let Ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+        popalert.addAction(Ok)
+        present(popalert, animated: true, completion: nil)
+    }
     
     func showErrorAlert() {
         
-            let alert = UIAlertController(title: "Selected Person & Image", message: "Please select a missing person to check and an image from library", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Selected Person & Image", message: "Please select a missing person to check and an image from library.", preferredStyle: UIAlertControllerStyle.alert)
             
             let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
             alert.addAction(ok)
@@ -136,7 +158,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         if faceId != nil {
                             FaceService.instance.client?.verify(withFirstFaceId: self.selectedPerson?.faceId, faceId2: faceId, completionBlock: { (result: MPOVerifyResult?, err: Error?) in
                                 
-                                                                // Check for results!!!
+                                                                            // Check for results!!!
                                 
                                 if err == nil {
                                     print(result?.confidence)
@@ -146,6 +168,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                     print(err.debugDescription)
                                 }
                                 
+                                
+                                    
+                                
+                                
+                                        if result?.isIdentical == true {
+                                        self.showMatchAlert()
+                                            } else {
+                                                self.showNotAMatchAlert()
+                                }
                                 
                                 
                             })
